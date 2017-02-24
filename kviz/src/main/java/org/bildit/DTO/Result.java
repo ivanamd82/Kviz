@@ -2,18 +2,18 @@ package org.bildit.DTO;
 
 import java.sql.Timestamp;
 
-public class Score {
+public class Result {
 	
 	private int ID;
 	private String nameUser;
 	private int score;
 	private Timestamp date;
 	
-	public Score() {
+	public Result() {
 		
 	}
 	
-	public Score(int ID, String nameUser, int score, Timestamp date) {
+	public Result(int ID, String nameUser, int score, Timestamp date) {
 		this.ID = ID;
 		this.nameUser = nameUser;
 		this.score = score;

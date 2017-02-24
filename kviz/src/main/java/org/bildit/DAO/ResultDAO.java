@@ -1,5 +1,5 @@
 package org.bildit.DAO;
 
-public class ScoreDAO {
+public class ResultDAO {
 
 }

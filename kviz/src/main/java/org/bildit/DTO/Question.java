@@ -1,17 +1,17 @@
 package org.bildit.DTO;
 
-public class QuestionAndAnswer {
+public class Question {
 	
 	private int ID;
 	private String question;
 	private String offeredAnswers;
-	private String correctAnswer;
+	private char correctAnswer;
 	
-	public QuestionAndAnswer() {
+	public Question() {
 		
 	}
 
-	public QuestionAndAnswer(int ID, String question, String offeredAnswers, String correctAnswe) {
+	public Question(int ID, String question, String offeredAnswers, char correctAnswe) {
 		this.ID = ID;
 		this.question = question;
 		this.offeredAnswers = offeredAnswers;
@@ -42,11 +42,11 @@ public class QuestionAndAnswer {
 		this.offeredAnswers = offeredAnswers;
 	}
 
-	public String getCorrectAnswer() {
+	public char getCorrectAnswer() {
 		return correctAnswer;
 	}
 
-	public void setCorrectAnswer(String correctAnswer) {
+	public void setCorrectAnswer(char correctAnswer) {
 		this.correctAnswer = correctAnswer;
 	}
 	
