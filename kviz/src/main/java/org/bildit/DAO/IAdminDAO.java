@@ -5,7 +5,6 @@ import java.sql.SQLException;
 import org.bildit.DTO.Admin;
 
 
-
 public interface IAdminDAO {
 	
 	public Admin getAdmin(String name) throws SQLException; 

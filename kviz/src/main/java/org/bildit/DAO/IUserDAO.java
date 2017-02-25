@@ -12,6 +12,7 @@ public interface IUserDAO {
 	public boolean addUser(String name, String password) throws SQLException;
 	
 	public boolean updateUser(User user, String password) throws SQLException;	
-
+	
+	public boolean deleteUser(String name) throws SQLException;
 
 }

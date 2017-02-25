@@ -8,5 +8,5 @@ public interface IResultDAO {
 	
 	public Result getScore(String name) throws SQLException;
 	
-	public boolean addScore(Result score) throws SQLException;
+	public boolean addScore(Result result) throws SQLException;
 }

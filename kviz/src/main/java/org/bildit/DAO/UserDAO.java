@@ -64,5 +64,18 @@ public class UserDAO implements IUserDAO {
 			return true;
 		}
 	}
+	
+	public boolean deleteUser(String name) throws SQLException {
+		
+		String query = "DELETE FROM kviz.user WHERE name = ?";
+		
+		try (PreparedStatement ps = connection.prepareStatement(query)) {
+			ps.setString(1, name);
+			ps.executeUpdate();
+			
+			return true;
+		}
+
+	}
 
 }
