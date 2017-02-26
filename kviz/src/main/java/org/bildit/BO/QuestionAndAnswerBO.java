@@ -49,16 +49,25 @@ public class QuestionAndAnswerBO {
 		
 	}
 
-	public boolean updateAnswerBO(int id, String offeredAnswers, char correctAnswer) {
-	
+	public boolean updateAnswerBO(int ID, String offeredAnswers, char correctAnswer) throws SQLException {
 		
-		return false;
+		if (ID == 0 || offeredAnswers == "" || correctAnswer == '\u0000') {
+			return false;
+		}
+		else {
+			return questionDAO.updateAnswer(ID, offeredAnswers, correctAnswer);
+		}
+		
 	}
 
-	public boolean deleteQuestionBO(int zero) {
+	public boolean deleteQuestionBO(int ID) throws SQLException {
 		
-		
-		return false;
+		if(ID == 0) {
+			return false;
+		}
+		else {		
+			return questionDAO.deleteQuestion(ID);
+		}
 	}	
 
 	public void setQuestionDAO (QuestionAndAnswerDAO questionDAO) {
