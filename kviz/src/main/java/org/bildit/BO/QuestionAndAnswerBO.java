@@ -40,16 +40,11 @@ public class QuestionAndAnswerBO {
 
 	public boolean updateQuestionBO(int ID, String newQuestion) throws SQLException {
 		
-		if (question == null) {
+		if (ID == 0 || newQuestion == "") {
 			return false;
 		}
 		else {
-			if (question.getQuestion() == "") {
-				return false;
-			}
-			else {
-				return questionDAO.updateQuestion(ID, newQuestion);
-			}
+			return questionDAO.updateQuestion(ID, newQuestion);
 		}
 		
 	}
