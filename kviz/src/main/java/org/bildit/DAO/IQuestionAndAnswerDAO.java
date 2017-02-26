@@ -10,9 +10,9 @@ public interface IQuestionAndAnswerDAO {
 	
 	public boolean addQuestion(Question question) throws SQLException;
 	
-	public boolean updateQuestion(Question question, String newQuestion) throws SQLException;
+	public boolean updateQuestion(int ID, String newQuestion) throws SQLException;
 	
-	public boolean updateAnswer(Question question, String offeredAnswers, char correctAnswer) throws SQLException;
+	public boolean updateAnswer(int ID, String offeredAnswers, char correctAnswer) throws SQLException;
 	
 	public boolean deleteQuestion(int ID) throws SQLException;
 

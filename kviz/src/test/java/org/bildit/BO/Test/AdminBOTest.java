@@ -63,7 +63,7 @@ public class AdminBOTest {
 		
 		Admin result = adminBO.getAdminBO(validAdmin.getName(), validAdmin.getPassword());
 		
-		assertNotNull(result);
+		assertSame(validAdmin, result);
 		
 		Mockito.verify(mockAdminDAO).getAdmin(validAdmin.getName());
 	}

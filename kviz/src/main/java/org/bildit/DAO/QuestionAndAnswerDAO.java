@@ -21,8 +21,8 @@ public class QuestionAndAnswerDAO implements IQuestionAndAnswerDAO {
 		ResultSet rs = null;
 		
 		try (PreparedStatement ps = connection.prepareStatement(query)) {
-			ps.setInt(1, ID);
 			
+			ps.setInt(1, ID);			
 			rs = ps.executeQuery();
 			
 			if(rs.next()) {
@@ -52,14 +52,14 @@ public class QuestionAndAnswerDAO implements IQuestionAndAnswerDAO {
 	}
 
 	@Override
-	public boolean updateQuestion(Question question, String newQuestion) throws SQLException {
+	public boolean updateQuestion(int ID, String newQuestion) throws SQLException {
 		
 		String query = "UPDATE kviz.questionAndAnswer SET question = ? WHERE questionAndAnswer.ID = ?";
 
 		try (PreparedStatement ps = connection.prepareStatement(query)) {
 
 			ps.setString(1, newQuestion);
-			ps.setInt(2, question.getID());
+			ps.setInt(2, ID);
 			ps.executeUpdate();
 	
 			return true;
@@ -67,7 +67,7 @@ public class QuestionAndAnswerDAO implements IQuestionAndAnswerDAO {
 	}
 	
 	@Override
-	public boolean updateAnswer(Question question, String offeredAnswers, char correctAnswer) throws SQLException {
+	public boolean updateAnswer(int ID, String offeredAnswers, char correctAnswer) throws SQLException {
 		
 		String query = "UPDATE kviz.questionAndAnswer SET offeredAnswers = ?, correctAnswer WHERE questionAndAnswer.ID = ?";
 
@@ -75,7 +75,7 @@ public class QuestionAndAnswerDAO implements IQuestionAndAnswerDAO {
 
 			ps.setString(1, offeredAnswers);
 			ps.setString(2, correctAnswer+"");
-			ps.setInt(3, question.getID());
+			ps.setInt(3, ID);
 			ps.executeUpdate();
 	
 			return true;

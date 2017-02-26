@@ -1,6 +1,7 @@
 package org.bildit.BO.Test;
 
 import static org.junit.Assert.*;
+
 import java.sql.SQLException;
 
 import org.bildit.BO.UserBO;
@@ -63,7 +64,7 @@ public class UserBOTest {
 		
 		User result = userBO.getUserBO(validUser.getName(),validUser.getPassword());
 		
-		assertNotNull(result);
+		assertSame(validUser, result);
 		
 		Mockito.verify(mockUserDAO).getUser(validUser.getName());
 	}
