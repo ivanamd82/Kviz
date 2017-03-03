@@ -22,14 +22,14 @@ public class AdminInteraction extends PersonInteraction {
 		System.out.print("Unesite sifru: ");
 		String userPassword = input.next();
 		Admin admin = new Admin(userName, userPassword);
-		System.out.println(admin.getName()+"1");
+		
 		return admin;
 	}
 	
 	public Admin loginMainMenu() throws SQLException {
 		
 		this. admin = loginInput();
-		System.out.println(admin.getName());
+		
 		try {
 			admin = adminBO.getAdminBO(admin.getName(),admin.getPassword());
 			if(admin == null) {
