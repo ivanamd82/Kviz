@@ -10,19 +10,22 @@ public class ResultBO {
 	
 	ResultDAO resultDAO = new ResultDAO();
 	Result result = null;
-	ArrayList<Result> topN;
+	ArrayList<Result> list;
 	
-	public Result getResultBO(String nameUser) throws SQLException {
+	public ArrayList<Result> getResultBO(String nameUser) throws SQLException {
+		
+		list = new ArrayList<>();
 		
 		if (nameUser == "") {
 			return null;
 		}
 		else {
-			return resultDAO.getResult(nameUser);
+			list = resultDAO.getResult(nameUser);
+			return list;
 		}
 	}
 
-	public boolean addResult(Result result) throws SQLException {
+	public boolean addResultBO(Result result) throws SQLException {
 		
 		if (result == null) {
 			return false;
@@ -39,14 +42,14 @@ public class ResultBO {
 	
 	public ArrayList<Result> topNScoreBO(int n) throws SQLException {
 		
-		topN = new ArrayList<>();
+		list = new ArrayList<>();
 		
 		if (n == 0) {
 			return null;
 		}
 		else {
-			topN = resultDAO.topNScore(n);
-			return topN;
+			list = resultDAO.topNScore(n);
+			return list;
 		}
 		
 	}

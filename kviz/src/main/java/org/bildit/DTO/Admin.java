@@ -1,8 +1,17 @@
 package org.bildit.DTO;
 
-public class Admin {
+public class Admin extends Person{
 	
-	private String name;
+	public Admin() {
+		
+	}
+	
+	public Admin(String name, String password) {
+		super(name, password);
+	}
+	
+	
+/*	private String name;
 	private String password;
 	
 	public Admin() {
@@ -29,5 +38,6 @@ public class Admin {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	*/
 
 }

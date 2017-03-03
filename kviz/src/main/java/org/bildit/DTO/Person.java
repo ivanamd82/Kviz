@@ -1,40 +1,30 @@
 package org.bildit.DTO;
 
-public class User extends Person {
+public class Person {
 	
-	public User() {
-		
-	}
-	
-	public User(String name, String password) {		
-		super(name, password);
-	}
-
-	
-/*	private String name;
+	private String name;
 	private String password;
 	
-	public User() {
+	public Person() {
 		
 	}
-	
-	public User(String name, String password) {		
+	public Person(String name, String password) {
 		this.name = name;
 		this.password = password;
 	}
-
+	
 	public String getName() {
 		return name;
 	}
-
+	
 	public void setName(String name) {
 		this.name = name;
 	}
-
+	
 	public String getPassword() {
 		return password;
 	}
-
+	
 	public void setPassword(String password) {
 		this.password = password;
 	}
@@ -43,5 +33,5 @@ public class User extends Person {
 	public String toString() {
 		return "Name: "+ name + " Pasword: " + password;		
 	}
-	*/
+	
 }

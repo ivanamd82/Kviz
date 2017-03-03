@@ -19,7 +19,7 @@ public class ResultBOTest {
 	String empty;
 	Result validResult;
 	Result emptyResult;
-	ArrayList<Result> top;
+	ArrayList<Result> list;
 
 	@Before
 	public void setUp() throws Exception {
@@ -29,24 +29,27 @@ public class ResultBOTest {
 		resultBO.setResultDAO(mockResultDAO);
 		validResult = new Result("igrac",200);
 		emptyResult = new Result("",0);
+		list = new ArrayList<>();
 	}
 
 	@Test
 	public void getScoreBOShouldReturnNullWhenNameIsEmpty() throws SQLException {
 		
-		Result result = resultBO.getResultBO(emptyResult.getNameUser());
-		
+		ArrayList<Result> result = resultBO.topNScoreBO(0);
+				
 		assertNull(result);
 	}
 	
 	@Test
 	public void getResultBOShouldReturnResultWhenDAOgetMethodIsCalled() throws SQLException {
 		
-		Mockito.when(mockResultDAO.getResult(validResult.getNameUser())).thenReturn(validResult);
+		list.add(validResult);
 		
-		Result result = resultBO.getResultBO(validResult.getNameUser());
+		Mockito.when(mockResultDAO.getResult(validResult.getNameUser())).thenReturn(list);		
+			
+		ArrayList<Result> result = resultBO.getResultBO(validResult.getNameUser());
 		
-		assertSame(validResult, result);
+		assertSame(list, result);
 		
 		Mockito.verify(mockResultDAO).getResult(validResult.getNameUser());
 	}
@@ -54,7 +57,7 @@ public class ResultBOTest {
 	@Test
 	public void addResultShouldReturnFalseWhenResultIsNull() throws SQLException {
 		
-		boolean result = resultBO.addResult(null);
+		boolean result = resultBO.addResultBO(null);
 		
 		assertFalse(result);
 	}
@@ -62,7 +65,7 @@ public class ResultBOTest {
 	@Test
 	public void addResultShouldReturnFalseWhenUserNameIsEmpty() throws SQLException {
 		
-		boolean result = resultBO.addResult(emptyResult);
+		boolean result = resultBO.addResultBO(emptyResult);
 		
 		assertFalse(result);
 		
@@ -73,9 +76,10 @@ public class ResultBOTest {
 		
 		Mockito.when(mockResultDAO.addResult(validResult)).thenReturn(true);
 		
-		boolean result = resultBO.addResult(validResult);
+		boolean result = resultBO.addResultBO(validResult);
 		
 		assertTrue(result);
+		Mockito.verify(mockResultDAO).addResult(validResult);
 	}
 	
 	@Test
@@ -88,12 +92,14 @@ public class ResultBOTest {
 	@Test
 	public void topNScoreShouldReturnListWhenDaoMethod() throws SQLException {
 		
-		top = new ArrayList<>();
-		top.add(validResult);
+		list.add(validResult);
 		
-		Mockito.when(mockResultDAO.topNScore(1)).thenReturn(top);
+		Mockito.when(mockResultDAO.topNScore(1)).thenReturn(list);
 		
 		ArrayList<Result> result = resultBO.topNScoreBO(1);
-		assertSame(top.get(0), result.get(0));
+		
+		assertSame(list.get(0), result.get(0));
+		
+		Mockito.verify(mockResultDAO).topNScore(1);
 	}
 }

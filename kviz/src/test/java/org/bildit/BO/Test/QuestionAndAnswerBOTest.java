@@ -3,6 +3,7 @@ package org.bildit.BO.Test;
 import static org.junit.Assert.*;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import org.bildit.BO.QuestionAndAnswerBO;
 import org.bildit.DAO.QuestionAndAnswerDAO;
@@ -50,7 +51,11 @@ public class QuestionAndAnswerBOTest {
 		Mockito.verify(mockQuestionDAO).getQuestion(validQuestion.getID());
 		
 	}
-	
+/*
+ * 	@Override
+	public ArrayList<Question> listOfQuestions() throws SQLException {
+	ODRADITI TEST	
+ */
 	@Test
 	public void addQuestionBOShouldReturnFalseWhenQuestionIsNull() throws SQLException {
 		

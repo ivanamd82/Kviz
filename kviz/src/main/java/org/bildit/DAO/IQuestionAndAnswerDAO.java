@@ -1,12 +1,15 @@
 package org.bildit.DAO;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import org.bildit.DTO.Question;
 
 public interface IQuestionAndAnswerDAO {
 	
 	public Question getQuestion(int ID) throws SQLException;
+	
+	public ArrayList<Question> listOfQuestions() throws SQLException;
 	
 	public boolean addQuestion(Question question) throws SQLException;
 	

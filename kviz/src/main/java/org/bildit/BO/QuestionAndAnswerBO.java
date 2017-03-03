@@ -1,6 +1,7 @@
 package org.bildit.BO;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import org.bildit.DAO.QuestionAndAnswerDAO;
 import org.bildit.DTO.Question;
@@ -10,6 +11,7 @@ public class QuestionAndAnswerBO {
 	
 	QuestionAndAnswerDAO questionDAO = new QuestionAndAnswerDAO();
 	Question question= null;
+	ArrayList<Question> list = null;
 	
 	public Question getQuestionBO(int ID) throws SQLException {
 		
@@ -20,6 +22,12 @@ public class QuestionAndAnswerBO {
 			question = questionDAO.getQuestion(ID);
 			return question;
 		}
+	}
+	
+	public ArrayList<Question> listOfQuestions() throws SQLException {
+		
+		list = questionDAO.listOfQuestions();
+		return list;
 	}
 	
 	public boolean addQuestionBO(Question question) throws SQLException {

@@ -10,6 +10,11 @@ public class Question {
 	public Question() {
 		
 	}
+	public Question(String question, String offeredAnswers, char correctAnswe) {
+		this.question = question;
+		this.offeredAnswers = offeredAnswers;
+		this.correctAnswer = correctAnswe;
+	}
 
 	public Question(int ID, String question, String offeredAnswers, char correctAnswe) {
 		this.ID = ID;
@@ -52,7 +57,11 @@ public class Question {
 	
 	@Override
 	public String toString() {
-		return "ID: "+ ID + " Pitanje: "+ question + "\nPonudjeni odgovori: "+ offeredAnswers + "\nTacan odgovor: ";
+		return "ID: "+ ID + " Pitanje: "+ question + "\nPonudjeni odgovori: "+ offeredAnswers + "\nTacan odgovor: "+correctAnswer;
+	}
+	
+	public String printQuestion() {
+		return question+"\n"+offeredAnswers+"\n";
 	}
 	
 }

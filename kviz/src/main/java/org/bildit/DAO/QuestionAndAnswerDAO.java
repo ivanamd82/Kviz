@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import org.bildit.DTO.Question;
 
@@ -33,6 +34,27 @@ public class QuestionAndAnswerDAO implements IQuestionAndAnswerDAO {
 		}
 		return question;
 		
+	}
+	
+	@Override
+	public ArrayList<Question> listOfQuestions() throws SQLException {
+		
+		ArrayList<Question> list = new ArrayList<>();
+		
+		String query = "SELECT * FROM kviz.questionAndAnswer";
+		
+		ResultSet rs = null;
+		
+		try (PreparedStatement ps = connection.prepareStatement(query)) {
+		
+			rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				list.add(new Question(rs.getInt("ID"),rs.getString("question"),rs.getString("offeredAnswers"),rs.getString("correctAnswer").charAt(0)));
+			}
+			rs.close();
+		}		
+		return list;
 	}
 
 	@Override
@@ -69,7 +91,7 @@ public class QuestionAndAnswerDAO implements IQuestionAndAnswerDAO {
 	@Override
 	public boolean updateAnswer(int ID, String offeredAnswers, char correctAnswer) throws SQLException {
 		
-		String query = "UPDATE kviz.questionAndAnswer SET offeredAnswers = ?, correctAnswer WHERE questionAndAnswer.ID = ?";
+		String query = "UPDATE kviz.questionAndAnswer SET offeredAnswers = ?, correctAnswer = ? WHERE questionAndAnswer.ID = ?";
 
 		try (PreparedStatement ps = connection.prepareStatement(query)) {
 
