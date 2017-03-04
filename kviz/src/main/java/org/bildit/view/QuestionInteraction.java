@@ -20,7 +20,7 @@ public class QuestionInteraction {
 		System.out.println("Unesite ponudjenje odgovore (a, b, c): ");
 		String offeredAnswers = input.nextLine();
 		
-		System.out.println("Tacan odgovor");
+		System.out.println("Tacan odgovor: ");
 		char correctAnswer = input.nextLine().charAt(0);
 		
 		question = new Question(questionDesc, offeredAnswers, correctAnswer);
