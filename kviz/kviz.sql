@@ -25,3 +25,4 @@ CREATE TABLE IF NOT EXISTS Result (
     date DATETIME NOT NULL
 );
 
+INSERT INTO kviz.admin (name, password) VALUES ('admin','admin');
