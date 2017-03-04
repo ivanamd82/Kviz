@@ -5,17 +5,24 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import org.bildit.BO.UserBO;
+import org.bildit.DTO.Person;
 import org.bildit.DTO.User;
 
-public class UserInteraction {
+public class UserInteraction extends PersonInteraction {
 	
 	static Scanner input = new Scanner(System.in);
 	
 	User user;
 	UserBO userBO = new UserBO();
 	ResultInteraction resultI = new ResultInteraction();
+	
+	public void userSet() throws SQLException {
+		
+		Person person = loginInput();
+		this. user = new User(person.getName(),person.getPassword());
+	}
 
-	public User loginInput() {
+/*	public User loginInput() {
 		
 		System.out.println("Unesite korisnicko ime: ");
 		String userName = input.next();
@@ -26,13 +33,13 @@ public class UserInteraction {
 		
 		return user;
 	}
-	
+*/	
 	public User loginMainMenu() throws SQLException {
 		
-		this.user = loginInput();
+		userSet();
 		
 		try {			
-			this.user = userBO.getUserBO(user.getName(),user.getPassword());
+			user = userBO.getUserBO(user.getName(),user.getPassword());
 			if(user == null) {
 				System.out.println("Pogresna sifra!");
 				return null;
@@ -49,7 +56,7 @@ public class UserInteraction {
 
 	public void registracija() throws SQLException {
 
-		User user = loginInput();
+		userSet();
 		
 		if (userBO.addUserBO(user.getName(),user.getPassword())) {
 			System.out.println("Uspjesno ste se registrovali.");

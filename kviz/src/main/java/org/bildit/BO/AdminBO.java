@@ -68,5 +68,4 @@ public class AdminBO {
 		this.admin = admin;
 	}
 
-
 }
