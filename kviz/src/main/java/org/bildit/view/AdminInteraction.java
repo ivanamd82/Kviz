@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 import org.bildit.BO.AdminBO;
 import org.bildit.DTO.Admin;
+import org.bildit.DTO.Person;
 
 public class AdminInteraction extends PersonInteraction {
 	
@@ -15,20 +16,15 @@ public class AdminInteraction extends PersonInteraction {
 	AdminBO adminBO = new AdminBO();
 	QuestionInteraction questionI = new QuestionInteraction();
 	
-	public Admin loginInput() {
+	public void adminSet() throws SQLException {
 		
-		System.out.println("Unesite korisnicko ime: ");
-		String userName = input.next();
-		System.out.print("Unesite sifru: ");
-		String userPassword = input.next();
-		Admin admin = new Admin(userName, userPassword);
-		
-		return admin;
+		Person person = loginInput();
+		this. admin = new Admin(person.getName(),person.getPassword());
 	}
 	
 	public Admin loginMainMenu() throws SQLException {
 		
-		this. admin = loginInput();
+		adminSet();
 		
 		try {
 			admin = adminBO.getAdminBO(admin.getName(),admin.getPassword());
@@ -43,7 +39,7 @@ public class AdminInteraction extends PersonInteraction {
 			}
 		} catch (NullPointerException e) {
 			System.out.println("Pogreso korisnicko ime ili baza prazna");
-			e.printStackTrace();
+			
 			return null;
 		}
 	}
@@ -131,7 +127,7 @@ public class AdminInteraction extends PersonInteraction {
 
 	private void addAdmin() throws SQLException {
 
-		Admin admin = loginInput();
+		adminSet();
 		
 		if (adminBO.addAdminBO(admin.getName(), admin.getPassword())) {
 			System.out.println("Uspjesno ste se dodali novog administratora.");

@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 
-import org.bildit.BO.QuestionAndAnswerBO;
 import org.bildit.DTO.Question;
 
 public class Game {
@@ -14,16 +13,15 @@ public class Game {
 	int numberOfQuestion = 10;
 	int points = 0;
 	ArrayList<Question> listOfQuestion;	
-	
-	QuestionAndAnswerBO questionBO = new QuestionAndAnswerBO();
+	QuestionInteraction questionI = new QuestionInteraction();
 	
 	private void loadList() throws SQLException {
 		
-		this.listOfQuestion = questionBO.listOfQuestions();
+		this.listOfQuestion = questionI.getListOfQuestion();
 		Collections.shuffle(listOfQuestion);
 	}
 	
-	public void game() throws SQLException {
+	public void playGame() throws SQLException {
 		
 		loadList();
 		
@@ -58,11 +56,4 @@ public class Game {
 		this.points = points;
 	}
 
-	public ArrayList<Question> getListOfQuestion() {
-		return listOfQuestion;
-	}
-
-	public void setListOfQuestion(ArrayList<Question> listOfQuestion) {
-		this.listOfQuestion = listOfQuestion;
-	}
 }

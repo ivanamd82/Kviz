@@ -5,34 +5,29 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import org.bildit.BO.UserBO;
+import org.bildit.DTO.Person;
 import org.bildit.DTO.User;
 
-public class UserInteraction {
+public class UserInteraction extends PersonInteraction {
 	
 	static Scanner input = new Scanner(System.in);
 	
 	User user;
 	UserBO userBO = new UserBO();
 	ResultInteraction resultI = new ResultInteraction();
-
-	public User loginInput() {
-		
-		System.out.println("Unesite korisnicko ime: ");
-		String userName = input.next();
-		System.out.print("Unesite sifru: ");
-		String userPassword = input.next();
-		
-		User user = new User(userName, userPassword);
-		
-		return user;
-	}
 	
+	public void userSet() throws SQLException {
+		
+		Person person = loginInput();
+		this. user = new User(person.getName(),person.getPassword());
+	}
+
 	public User loginMainMenu() throws SQLException {
 		
-		this.user = loginInput();
+		userSet();
 		
 		try {			
-			this.user = userBO.getUserBO(user.getName(),user.getPassword());
+			user = userBO.getUserBO(user.getName(),user.getPassword());
 			if(user == null) {
 				System.out.println("Pogresna sifra!");
 				return null;
@@ -49,7 +44,7 @@ public class UserInteraction {
 
 	public void registracija() throws SQLException {
 
-		User user = loginInput();
+		userSet();
 		
 		if (userBO.addUserBO(user.getName(),user.getPassword())) {
 			System.out.println("Uspjesno ste se registrovali.");
@@ -63,7 +58,7 @@ public class UserInteraction {
 		
 		System.out.println("\nIzaberite opciju: \n"
 				+ "1. Nova igra\n"
-				+ "2. Izlistaj resultate prethocnih partija\n"
+				+ "2. Izlistaj resultate prethodnih partija\n"
 				+ "3. Top 100\n"
 				+ "4. Promjena sifre\n"
 				+ "5. Izlaz\n");	
@@ -104,7 +99,7 @@ public class UserInteraction {
 	private void game() throws SQLException {
 		
 		Game kviz = new Game();
-		kviz.game();
+		kviz.playGame();
 		resultI.addresultI(user.getName(),kviz.getPoints());
 		
 		
@@ -121,11 +116,22 @@ public class UserInteraction {
 		resultI.top100();
 	}
 
-	private void changePassword() {
+	private void changePassword() throws SQLException {
+		
+		String newPassword = newPassword();
+		if (userBO.updateUserBO(user, newPassword)) {
+			System.out.println("Sifra uspijesno izmjenjena");			
+		}
+		else {
+			System.out.println("Greska, molim vas pokusajte ponovo.");
+		}		
+		
 		
 		System.out.println("under construction");
 	}
+	
 	public void deleteUser(String name) throws SQLException{
+		
 		if (userBO.deleteUseBO(name)) {
 			System.out.println("Igrac uspjesno izbrisan");
 		}

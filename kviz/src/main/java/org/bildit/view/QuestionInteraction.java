@@ -1,6 +1,7 @@
 package org.bildit.view;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import org.bildit.BO.QuestionAndAnswerBO;
@@ -11,6 +12,13 @@ public class QuestionInteraction {
 	static Scanner input = new Scanner(System.in);
 	QuestionAndAnswerBO questionBO = new QuestionAndAnswerBO();
 	Question question;
+	ArrayList<Question> listOfQuestion;
+	
+	public ArrayList<Question> getListOfQuestion() throws SQLException {
+		
+		this.listOfQuestion = questionBO.listOfQuestions();
+		return listOfQuestion;
+	}
 	
 	public void addNewQuestion() throws SQLException {
 
@@ -65,8 +73,14 @@ public class QuestionInteraction {
 		}
 		else {
 			System.out.println("Greska, molim vas pokusajte ponovo.");
-		}
+		}		
+	}
+	
+	public void printsQuestion() {
 		
+		for (Question question: listOfQuestion) {
+			System.out.println(question);
+		}
 	}
 
 }

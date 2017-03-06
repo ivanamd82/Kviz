@@ -12,18 +12,18 @@ import org.bildit.view.UserInteraction;
 public class App {
 	
 	static Scanner input = new Scanner(System.in);
-	static UserInteraction userI = new UserInteraction();
-	static AdminInteraction adminI = new AdminInteraction();
 	
     public static void main( String[] args ) throws SQLException{
-    
-
+    	
+    	UserInteraction userI = new UserInteraction();
+    	AdminInteraction adminI = new AdminInteraction();
+    	
     	while(true) {
-    		printMainMenu(userI);
+    		printMainMenu(adminI, userI);
    		}     
      }
     
-    public static void printMainMenu(UserInteraction userI) throws SQLException {
+    public static void printMainMenu(AdminInteraction adminI, UserInteraction userI) throws SQLException {
     	
     	Admin admin = null;
     	User user = null;
@@ -75,5 +75,4 @@ public class App {
 			input.nextLine();	
     	}    	
     }
-
 }
