@@ -26,7 +26,7 @@ public class ResultDAO implements IResultDAO {
 			
 			rs = ps.executeQuery();
 			
-			if(rs.next()) {
+			while(rs.next()) {
 				results.add(new Result(rs.getInt("ID"),rs.getString("nameOfUser"),rs.getInt("score"),rs.getTimestamp("date")));
 			}
 			
@@ -55,7 +55,7 @@ public class ResultDAO implements IResultDAO {
 		
 		ArrayList<Result> results = new ArrayList<Result>();
 		
-		String query = "SELECT * FROM kviz.result ORDER BY 'score' LIMIT ?";
+		String query = "SELECT * FROM kviz.result ORDER BY score DESC LIMIT ?";
 		
 		ResultSet rs = null;
 		

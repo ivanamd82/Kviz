@@ -1,6 +1,9 @@
 package org.bildit.BO.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -19,6 +22,7 @@ public class QuestionAndAnswerBOTest {
 	int zero;
 	Question validQuestion;
 	Question emptyQuestion;
+	ArrayList<Question> list;
 	
 	@Before
 	public void setUp() {
@@ -29,6 +33,7 @@ public class QuestionAndAnswerBOTest {
 		zero = 0;
 		validQuestion = new Question(1, "Pitanje?", "a) prvi b) drugi", 'a');
 		emptyQuestion = new Question(0, "", "", '\u0000');
+		list = new ArrayList<>();
 	}
 
 	@Test
@@ -51,11 +56,20 @@ public class QuestionAndAnswerBOTest {
 		Mockito.verify(mockQuestionDAO).getQuestion(validQuestion.getID());
 		
 	}
-/*
- * 	@Override
-	public ArrayList<Question> listOfQuestions() throws SQLException {
-	ODRADITI TEST	
- */
+	@Test
+	public void listOfQuestionsBOShouldReturnListWhenDaoMethodIsCalled() throws SQLException {
+		
+		list.add(validQuestion);
+		
+		Mockito.when(mockQuestionDAO.listOfQuestions()).thenReturn(list);
+		
+		ArrayList<Question> result = questionBO.listOfQuestions();
+		
+		assertSame(list, result);
+		
+		Mockito.verify(mockQuestionDAO).listOfQuestions();
+	}
+
 	@Test
 	public void addQuestionBOShouldReturnFalseWhenQuestionIsNull() throws SQLException {
 		
