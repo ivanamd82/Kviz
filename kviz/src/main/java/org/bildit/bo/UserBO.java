@@ -1,9 +1,9 @@
-package org.bildit.BO;
+package org.bildit.bo;
 
 import java.sql.SQLException;
 
-import org.bildit.DAO.UserDAO;
-import org.bildit.DTO.User;
+import org.bildit.dao.UserDAO;
+import org.bildit.dto.User;
 
 public class UserBO {	
 	

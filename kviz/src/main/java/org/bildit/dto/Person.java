@@ -1,4 +1,4 @@
-package org.bildit.DTO;
+package org.bildit.dto;
 
 public class Person {
 	

@@ -4,9 +4,9 @@ import java.sql.SQLException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import org.bildit.BO.UserBO;
-import org.bildit.DTO.Person;
-import org.bildit.DTO.User;
+import org.bildit.bo.UserBO;
+import org.bildit.dto.Person;
+import org.bildit.dto.User;
 
 public class UserInteraction extends PersonInteraction {
 	

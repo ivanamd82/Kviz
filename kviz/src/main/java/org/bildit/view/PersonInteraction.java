@@ -2,7 +2,7 @@ package org.bildit.view;
 
 import java.util.Scanner;
 
-import org.bildit.DTO.Person;
+import org.bildit.dto.Person;
 
 public class PersonInteraction {
 	

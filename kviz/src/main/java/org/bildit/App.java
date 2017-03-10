@@ -4,8 +4,8 @@ import java.sql.SQLException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import org.bildit.DTO.Admin;
-import org.bildit.DTO.User;
+import org.bildit.dto.Admin;
+import org.bildit.dto.User;
 import org.bildit.view.AdminInteraction;
 import org.bildit.view.UserInteraction;
 

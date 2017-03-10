@@ -8,9 +8,9 @@ import static org.junit.Assert.assertTrue;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import org.bildit.BO.QuestionAndAnswerBO;
-import org.bildit.DAO.QuestionAndAnswerDAO;
-import org.bildit.DTO.Question;
+import org.bildit.bo.QuestionAndAnswerBO;
+import org.bildit.dao.QuestionAndAnswerDAO;
+import org.bildit.dto.Question;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;

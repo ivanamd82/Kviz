@@ -4,8 +4,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import org.bildit.BO.QuestionAndAnswerBO;
-import org.bildit.DTO.Question;
+import org.bildit.bo.QuestionAndAnswerBO;
+import org.bildit.dto.Question;
 
 public class QuestionInteraction {
 	

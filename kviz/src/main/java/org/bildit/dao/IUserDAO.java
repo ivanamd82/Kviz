@@ -1,8 +1,8 @@
-package org.bildit.DAO;
+package org.bildit.dao;
 
 import java.sql.SQLException;
 
-import org.bildit.DTO.User;
+import org.bildit.dto.User;
 
 
 public interface IUserDAO {

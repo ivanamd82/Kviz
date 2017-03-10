@@ -4,8 +4,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import org.bildit.BO.ResultBO;
-import org.bildit.DTO.Result;
+import org.bildit.bo.ResultBO;
+import org.bildit.dto.Result;
 
 public class ResultInteraction {
 	

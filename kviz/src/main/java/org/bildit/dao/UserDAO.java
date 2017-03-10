@@ -1,11 +1,11 @@
-package org.bildit.DAO;
+package org.bildit.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import org.bildit.DTO.User;
+import org.bildit.dto.User;
 
 public class UserDAO implements IUserDAO {
 	

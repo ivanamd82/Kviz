@@ -1,10 +1,10 @@
-package org.bildit.BO;
+package org.bildit.bo;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import org.bildit.DAO.ResultDAO;
-import org.bildit.DTO.Result;
+import org.bildit.dao.ResultDAO;
+import org.bildit.dto.Result;
 
 public class ResultBO {
 	

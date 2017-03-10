@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 
-import org.bildit.DTO.Question;
+import org.bildit.dto.Question;
 
 public class Game {
 	

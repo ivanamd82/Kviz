@@ -5,9 +5,9 @@ import static org.junit.Assert.*;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import org.bildit.BO.ResultBO;
-import org.bildit.DAO.ResultDAO;
-import org.bildit.DTO.Result;
+import org.bildit.bo.ResultBO;
+import org.bildit.dao.ResultDAO;
+import org.bildit.dto.Result;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;

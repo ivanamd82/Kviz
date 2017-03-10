@@ -4,9 +4,9 @@ import java.sql.SQLException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import org.bildit.BO.AdminBO;
-import org.bildit.DTO.Admin;
-import org.bildit.DTO.Person;
+import org.bildit.bo.AdminBO;
+import org.bildit.dto.Admin;
+import org.bildit.dto.Person;
 
 public class AdminInteraction extends PersonInteraction {
 	

@@ -4,9 +4,9 @@ import static org.junit.Assert.*;
 
 import java.sql.SQLException;
 
-import org.bildit.BO.AdminBO;
-import org.bildit.DAO.AdminDAO;
-import org.bildit.DTO.Admin;
+import org.bildit.bo.AdminBO;
+import org.bildit.dao.AdminDAO;
+import org.bildit.dto.Admin;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mockito;

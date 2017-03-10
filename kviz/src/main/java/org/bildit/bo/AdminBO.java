@@ -1,9 +1,9 @@
-package org.bildit.BO;
+package org.bildit.bo;
 
 import java.sql.SQLException;
 
-import org.bildit.DAO.AdminDAO;
-import org.bildit.DTO.Admin;
+import org.bildit.dao.AdminDAO;
+import org.bildit.dto.Admin;
 
 public class AdminBO {
 	

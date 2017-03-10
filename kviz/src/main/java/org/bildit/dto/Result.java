@@ -1,4 +1,4 @@
-package org.bildit.DTO;
+package org.bildit.dto;
 
 import java.sql.Timestamp;
 import java.util.Date;

@@ -1,4 +1,4 @@
-package org.bildit.DAO;
+package org.bildit.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

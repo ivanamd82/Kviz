@@ -1,9 +1,9 @@
-package org.bildit.DAO;
+package org.bildit.dao;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import org.bildit.DTO.Result;
+import org.bildit.dto.Result;
 
 public interface IResultDAO {
 	

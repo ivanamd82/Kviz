@@ -1,11 +1,11 @@
-package org.bildit.DAO;
+package org.bildit.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import org.bildit.DTO.Admin;
+import org.bildit.dto.Admin;
 
 public class AdminDAO implements IAdminDAO {
 	

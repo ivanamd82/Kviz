@@ -1,4 +1,4 @@
-package org.bildit.DAO;
+package org.bildit.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import org.bildit.DTO.Question;
+import org.bildit.dto.Question;
 
 public class QuestionAndAnswerDAO implements IQuestionAndAnswerDAO {
 	

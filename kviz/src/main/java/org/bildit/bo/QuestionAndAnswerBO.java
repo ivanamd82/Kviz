@@ -1,10 +1,10 @@
-package org.bildit.BO;
+package org.bildit.bo;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import org.bildit.DAO.QuestionAndAnswerDAO;
-import org.bildit.DTO.Question;
+import org.bildit.dao.QuestionAndAnswerDAO;
+import org.bildit.dto.Question;
 
 
 public class QuestionAndAnswerBO {
